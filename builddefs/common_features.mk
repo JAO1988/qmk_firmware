@@ -631,6 +631,17 @@ ifeq ($(strip $(VIA_ENABLE)), yes)
     TRI_LAYER_ENABLE := yes
 endif
 
+ifeq ($(strip $(OPENRGB_ENABLE)), yes)
+    ifeq ($(strip $(VIA_OPENRGB_HYBRID)), yes)
+	    OPT_DEFS += -DVIA_OPENRGB_HYBRID
+    else ifeq ($(strip $(VIA_ENABLE)), yes)
+        $(error OPENRGB_ENABLE and VIA_ENABLE cannot currently be enabled simultaneously)
+    endif
+    RAW_ENABLE := yes
+    SRC += $(QUANTUM_DIR)/openrgb.c
+    OPT_DEFS += -DOPENRGB_ENABLE
+endif
+
 VALID_CUSTOM_MATRIX_TYPES:= yes lite no
 
 CUSTOM_MATRIX ?= no

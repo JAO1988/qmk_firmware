@@ -236,6 +236,10 @@ extern layer_state_t layer_state;
 #    include "process_repeat_key.h"
 #endif
 
+#ifdef VIA_OPENRGB_HYBRID
+uint8_t is_orgb_mode;
+#endif
+
 #ifdef OS_DETECTION_ENABLE
 #    include "os_detection.h"
 #endif
