@@ -31,6 +31,13 @@
 #    include "profile.h"
 #endif
 
+#ifdef VIA_OPENRGB_HYBRID
+     bool is_orgb_mode = true; //Default value of the hybrid switch mode
+     #ifdef RGB_MATRIX_ENABLE
+     #    include "hybrid_switch_animation.h"
+     #endif
+#endif
+
 bool     is_siri_active = false;
 uint32_t siri_timer     = 0;
 
@@ -100,7 +107,15 @@ bool process_record_keychron_common(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             return false; // Skip all further processing of this key
-
+        case ORGB:
+#ifdef VIA_OPENRGB_HYBRID
+            if (record->event.pressed) {
+            is_orgb_mode = !is_orgb_mode;
+        #ifdef RGB_MATRIX_ENABLE
+            switch_animation_start(is_orgb_mode);
+        #endif
+            }
+#endif
         default:
 #ifdef ANANLOG_MATRIX
             return process_record_profile( keycode, record);

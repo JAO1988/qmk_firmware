@@ -33,7 +33,7 @@
 #include "version.h"
 
 #ifndef RAW_EPSIZE
-#    define RAW_EPSIZE 32
+#    define RAW_EPSIZE 64
 #endif
 
 #ifndef BL_CYCLE_KEY

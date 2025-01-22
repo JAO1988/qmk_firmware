@@ -203,3 +203,10 @@ void via_qmk_audio_set_value(uint8_t *data);
 void via_qmk_audio_get_value(uint8_t *data);
 void via_qmk_audio_save(void);
 #endif
+
+#ifdef VIA_OPENRGB_HYBRID
+extern bool is_orgb_mode;
+#ifdef OPENRGB_ENABLE
+extern void orgb_raw_hid_receive(uint8_t *data, uint8_t length);
+#endif
+#endif
