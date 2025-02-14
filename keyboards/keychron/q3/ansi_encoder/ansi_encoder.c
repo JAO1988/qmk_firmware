@@ -16,6 +16,10 @@
 
 #include "quantum.h"
 
+#ifdef VIA_OPENRGB_HYBRID
+uint8_t is_orgb_mode;
+#endif
+
 #ifdef RGB_MATRIX_ENABLE
 const ckled2001_led PROGMEM g_ckled2001_leds[RGB_MATRIX_LED_COUNT] = {
 /* Refer to IS31 manual for these locations

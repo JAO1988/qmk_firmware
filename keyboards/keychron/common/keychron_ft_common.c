@@ -19,7 +19,7 @@
 
 #ifndef NKRO
 #    include <string.h>
-#    define RAW_EPSIZE 32
+#    define RAW_EPSIZE 64
 #endif
 
 #ifndef BL_TEST_KEY1
